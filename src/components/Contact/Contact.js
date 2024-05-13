@@ -1,61 +1,58 @@
-import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import Particle from '../Particle';
+import React, { useState } from "react";
+import { Button, Container, Spinner } from "react-bootstrap";
+import Form from 'react-bootstrap/Form';
 
-const Contact = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted!');
-  };
 
+function Contact() {
+  //states
+  const [names, setNames] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+
+ 
   return (
-    <Container fluid className="contact-section">
-      <Particle />
-      <Container>
-      <Row style={{ justifyContent: 'center', paddingBottom: '20px', marginTop: '100px' }}>
-          <Col md={6}>
-            <h1 className="project-heading">
-              Reach <strong className="purple">Out</strong>
-            </h1>
-            <p>
-              Feel free to contact me for any inquiries or just to say hello! You can also connect
-              with me on social media.
-            </p>
-            {/* Add your contact information or social media links here */}
-          </Col>
-        </Row>
-        <Row style={{ justifyContent: 'center', padding: '20px 0' }}>
-          <Col md={6}>
-            <h1 className="project-heading">
-              Contact <strong className="purple">Me</strong>
-            </h1>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="formName">
-                <Form.Label>Your Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter your name" required />
-              </Form.Group>
-
-              <Form.Group controlId="formEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter your email" required />
-              </Form.Group>
-
-              <Form.Group controlId="formMessage">
-                <Form.Label>Message</Form.Label>
-                <Form.Control as="textarea" rows={4} placeholder="Enter your message" required />
-              </Form.Group>
-
-              <Button variant="primary" type="submit" style={{ marginTop: '25px' }}>
-                Submit
-              </Button>
-            </Form>
-          </Col>
-        </Row>
-       
-      </Container>
-    </Container>
+    <>
+      <section>
+        <Container fluid id="home">
+          <Container className="home-content">
+            <h1 className="text-center">GET IN TOUCH</h1>
+            <h5 className="text-center">I would like to know the final requirements of your project. Please get in touch with me and share details about your project.</h5>
+            <div>
+              <Form.Control
+                placeholder="Name"
+                style={{ margin: '0 auto' }}
+                className="w-50 mt-5"
+                onChange={(e) => setNames(e.target.value)}
+                value={names}
+              />
+              <Form.Control
+                placeholder="Email"
+                type="email"
+                style={{ margin: '0 auto' }}
+                className="w-50 mt-3"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+              <Form.Control
+                as="textarea"
+                placeholder="Leave a comment here"
+                style={{ margin: '0 auto', height: '10rem ' }}
+                className="w-50 mt-3"
+                onChange={(e) => setMessage(e.target.value)}
+                value={message}
+              />
+              <div className="text-center">
+            
+                <Button  className='mt-5'>Send message</Button>
+                <p className="mt-5"></p>
+              </div>
+            </div>
+          </Container>
+        </Container>
+      </section>
+    </>
   );
-};
+}
 
 export default Contact;
