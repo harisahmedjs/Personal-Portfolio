@@ -10,6 +10,17 @@ function Contact() {
   const [message, setMessage] = useState('');
 
 
+  function HandleSubmit(){
+    console.log(names)
+    console.log(email)
+    console.log(message)
+
+    setNames('');
+    setEmail('');
+    setMessage('');
+  }
+
+
  
   return (
     <>
@@ -43,8 +54,8 @@ function Contact() {
                 value={message}
               />
               <div className="text-center">
-            
-                <Button  className='mt-5'>Send message</Button>
+    
+                <Button  className='mt-5' onClick={HandleSubmit} >Send message</Button>
                 <p className="mt-5"></p>
               </div>
             </div>
